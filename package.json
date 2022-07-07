@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
     "eslint-plugin-jest-dom": "^3.9.2",
     "eslint-plugin-testing-library": "^3.10.2",
     "prop-types": "^15.7.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-redux": "^8.0.2",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
     "web-vitals": "^1.1.2"
