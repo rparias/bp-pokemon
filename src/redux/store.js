@@ -5,7 +5,7 @@ const rootReducer = combineReducers({
   pokemonList: pokemonListReducer
 })
 
-export function setupStore(preloadedState) {
+export const setupStore = (preloadedState) => {
   return configureStore({
     reducer: rootReducer,
     preloadedState

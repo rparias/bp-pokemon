@@ -3,18 +3,19 @@ import { rest } from 'msw'
 const BASE_URL = 'https://bp-pokemons.herokuapp.com'
 
 export const handlers = [
-  rest.get(`${BASE_URL}/?idAuthor=1`, (req, res, ctx) => {
+  rest.get(`${BASE_URL}/`, (req, res, ctx) => {
+    const authorId = req.url.searchParams.get('?idAuthor')
     return res(
       ctx.json([
         {
           id: 43,
-          name: 'Wartortle Editado',
+          name: 'Wartortle',
           image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png',
           attack: 18,
           defense: 76,
           hp: 0,
           type: 'Prueba',
-          id_author: 1
+          id_author: authorId
         },
         {
           id: 127,
@@ -24,12 +25,13 @@ export const handlers = [
           defense: 37,
           hp: 100,
           type: 'Test type',
-          id_author: 1
+          id_author: authorId
         }
       ])
     )
   }),
-  rest.post(`${BASE_URL}/?idAuthor=1`, (req, res, ctx) => {
+  rest.post(`${BASE_URL}/`, (req, res, ctx) => {
+    const authorId = req.url.searchParams.get('?idAuthor')
     return res(
       ctx.status(201),
       ctx.json({
@@ -39,7 +41,7 @@ export const handlers = [
         defense: 37,
         hp: 100,
         type: 'Test type',
-        id_author: 1
+        id_author: authorId
       })
     )
   }),
@@ -57,7 +59,8 @@ export const handlers = [
       })
     )
   }),
-  rest.get(`${BASE_URL}/:count?idAuthor=1`, (req, res, ctx) => {
+  rest.get(`${BASE_URL}/:count`, (req, res, ctx) => {
+    const authorId = req.url.searchParams.get('?idAuthor')
     return res(
       ctx.json([
         {
@@ -68,7 +71,7 @@ export const handlers = [
           defense: 76,
           hp: 0,
           type: 'Prueba',
-          id_author: 1
+          id_author: authorId
         },
         {
           id: 127,
@@ -78,7 +81,7 @@ export const handlers = [
           defense: 37,
           hp: 100,
           type: 'Test type',
-          id_author: 1
+          id_author: authorId
         }
       ])
     )

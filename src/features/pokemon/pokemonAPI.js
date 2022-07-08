@@ -1,31 +1,19 @@
 export const fetchPokemonList = async () => {
-  try {
-    const res = await fetch('https://bp-pokemons.herokuapp.com/?idAuthor=1')
-    if (!res.ok) {
-      const message = 'An error has occured'
-      throw new Error(message)
-    }
-    const data = await res.json()
-    console.log(data)
-    const result = {
-      data: data
-    }
-    return result
-  } catch (err) {
-    return Promise.reject(err)
-  }
+  return fetchPokemonData('https://bp-pokemons.herokuapp.com/?idAuthor=1')
 }
 
 export const fetchPokemonListByRegisters = async (numberOfRegisters) => {
-  console.log(numberOfRegisters)
+  return fetchPokemonData(`https://bp-pokemons.herokuapp.com/${numberOfRegisters}?idAuthor=1`)
+}
+
+const fetchPokemonData = async (url) => {
   try {
-    const res = await fetch(`https://bp-pokemons.herokuapp.com/${numberOfRegisters}?idAuthor=1`)
+    const res = await fetch(url)
     if (!res.ok) {
       const message = 'An error has occured'
       throw new Error(message)
     }
     const data = await res.json()
-    console.log(data)
     const result = {
       data: data
     }

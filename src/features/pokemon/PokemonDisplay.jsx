@@ -14,12 +14,11 @@ export default function PokemonDisplay() {
 
   return (
     <div>
-      {/* Display the current user name */}
-      <div>{JSON.stringify(pokemonList)}</div>
-      {/* On button click, dispatch a thunk action to fetch a user */}
+      <div>
+        {pokemonList.length > 0 ? JSON.stringify(pokemonList) : 'There are no pokemon list'}
+      </div>
       <button onClick={() => dispatch(fetchPokemonList())}>Fetch pokemon list</button>
       <button onClick={() => dispatch(fetchPokemonListByRegisters(1))}>Fetch 1 register</button>
-      {/* At any point if we're fetching a user, display that on the UI */}
       {pokemonListStatus === 'loading' && <div>Fetching pokemon list...</div>}
     </div>
   )
