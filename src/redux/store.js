@@ -1,8 +1,8 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import pokemonListReducer from './reducers/pokemonListSlice'
+import pokemonReducer from './reducers/pokemonReducer'
 
 const rootReducer = combineReducers({
-  pokemonList: pokemonListReducer
+  pokemon: pokemonReducer
 })
 
 export const setupStore = (preloadedState) => {
