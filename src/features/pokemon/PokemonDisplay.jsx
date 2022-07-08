@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import TopBar from '../../components/organisms/TopBar/TopBar'
 import {
   createNewPokemon,
   deletePokemonById,
@@ -38,6 +39,7 @@ export default function PokemonDisplay() {
 
   return (
     <div>
+      <TopBar />
       <div>
         {pokemonList.length > 0 ? JSON.stringify(pokemonList) : 'There are no pokemon list'}
       </div>
